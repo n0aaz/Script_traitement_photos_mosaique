@@ -20,4 +20,5 @@ for row in entrees[1:]:
     #print("identifiant= ",identifiant)
     if not os.path.isdir(current+dossier):
         os.mkdir(dossier)
-    gdown.download(row[2].replace("/open?","/uc?"),dossier+'/'+nom+'.jpg')
+    if not os.path.isfile(dossier+'/'+nom+'.jpg'): # petite condition pour ne pas tout retélécharger
+        gdown.download(row[2].replace("/open?","/uc?"),dossier+'/'+nom+'.jpg')
